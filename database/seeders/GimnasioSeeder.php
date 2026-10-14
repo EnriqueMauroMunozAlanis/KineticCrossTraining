@@ -10,44 +10,49 @@ use Illuminate\Database\Seeder;
 
 class GimnasioSeeder extends Seeder
 {
+    /**
+     * Datos base fijos del negocio KineticCrossTraining.
+     * Contenido real en español para que el sitio web
+     * tenga información curada desde el inicio.
+     */
     public function run(): void
     {
-        // Planes
+        // ---- Planes base (2) ----
         Plan::create([
             'nombre' => 'Básico',
             'precio' => 500,
             'duracion' => 'Mensual',
-            'beneficios' => 'Acceso a clases grupales en horario regular',
+            'beneficios' => 'Acceso a clases grupales en horario regular.',
         ]);
 
         Plan::create([
             'nombre' => 'Premium',
             'precio' => 800,
             'duracion' => 'Mensual',
-            'beneficios' => 'Acceso ilimitado a todas las clases y asesoría nutricional',
+            'beneficios' => 'Acceso ilimitado a todas las clases y asesoría nutricional.',
         ]);
 
-        // Entrenadores
+        // ---- Entrenador base (1) ----
         $entrenador = Entrenador::create([
             'nombre' => 'Carlos Ramírez',
             'especialidad' => 'CrossFit',
-            'biografia' => 'Entrenador certificado con 5 años de experiencia.',
+            'biografia' => 'Entrenador certificado con 5 años de experiencia en entrenamiento funcional y CrossFit.',
         ]);
 
-        // Clases
+        // ---- Clases base (2) ----
         $crossfit = Clase::create([
             'nombre' => 'CrossFit',
-            'descripcion' => 'Entrenamiento de alta intensidad con movimientos funcionales.',
+            'descripcion' => 'Entrenamiento de alta intensidad con movimientos funcionales variados.',
             'nivel' => 'Todos los niveles',
         ]);
 
         $funcional = Clase::create([
             'nombre' => 'Entrenamiento Funcional',
-            'descripcion' => 'Ejercicios que mejoran fuerza, movilidad y resistencia en la vida diaria.',
+            'descripcion' => 'Ejercicios que mejoran fuerza, movilidad y resistencia para la vida diaria.',
             'nivel' => 'Principiante',
         ]);
 
-        // Horarios
+        // ---- Horarios base (2) ----
         Horario::create([
             'clase_id' => $crossfit->id,
             'entrenador_id' => $entrenador->id,
